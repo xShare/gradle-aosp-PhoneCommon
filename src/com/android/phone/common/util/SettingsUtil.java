@@ -45,13 +45,14 @@ public class SettingsUtil {
      * Watch out: if the setting is missing in the device, this will try obtaining the old
      * "vibrate on ring" setting from AudioManager, and save the previous setting to the new one.
      */
+    public static final String VIBRATE_WHEN_RINGING = "vibrate_when_ringing";
     public static boolean getVibrateWhenRingingSetting(Context context) {
         Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
         if (vibrator == null || !vibrator.hasVibrator()) {
             return false;
         }
         return Settings.System.getInt(context.getContentResolver(),
-                Settings.System.VIBRATE_WHEN_RINGING, 0) != 0;
+                /*FIXME Settings.System.*/VIBRATE_WHEN_RINGING, 0) != 0;
     }
 
     /**
@@ -91,10 +92,10 @@ public class SettingsUtil {
                 }
             }
         }
-        CharSequence summary = context.getString(com.android.internal.R.string.ringtone_unknown);
+        CharSequence summary = null; // FIXME context.getString(com.android.internal.R.string.ringtone_unknown);
         // Is it a silent ringtone?
         if (ringtoneUri == null) {
-            summary = context.getString(com.android.internal.R.string.ringtone_silent);
+            summary = null;//FIXME context.getString(com.android.internal.R.string.ringtone_silent);
         } else {
             // Fetch the ringtone title from the media provider
             try {

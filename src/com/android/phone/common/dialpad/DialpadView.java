@@ -273,6 +273,11 @@ public class DialpadView extends LinearLayout {
      * @return The animation delay.
      */
     private int getKeyButtonAnimationDelay(int buttonId) {
+        /* FIXME
+        // Validates using resource IDs in a switch statement in Android library module.
+        // Resource IDs are non final in the library projects since SDK tools r14,
+        // means that the library code cannot treat these IDs as constants
+
         if (mIsLandscape) {
             if (mIsRtl) {
                 switch (buttonId) {
@@ -323,7 +328,7 @@ public class DialpadView extends LinearLayout {
                 case R.id.pound:
                     return KEY_FRAME_DURATION * 11;
             }
-        }
+        }//*/
 
         Log.wtf(TAG, "Attempted to get animation delay for invalid key button id.");
         return 0;
@@ -337,6 +342,11 @@ public class DialpadView extends LinearLayout {
      * @return The animation duration.
      */
     private int getKeyButtonAnimationDuration(int buttonId) {
+        /* FIXME
+        // Validates using resource IDs in a switch statement in Android library module.
+        // Resource IDs are non final in the library projects since SDK tools r14,
+        // means that the library code cannot treat these IDs as constants
+
         if (mIsLandscape) {
             if (mIsRtl) {
                 switch (buttonId) {
@@ -393,7 +403,7 @@ public class DialpadView extends LinearLayout {
                 case R.id.pound:
                     return KEY_FRAME_DURATION * 8;
             }
-        }
+        }//*/
 
         Log.wtf(TAG, "Attempted to get animation duration for invalid key button id.");
         return 0;
